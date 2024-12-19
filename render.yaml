@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: blog-management-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm run start
+    region: india
+    plan: free
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: MONGO_URI
+        value: 'mongodb://127.0.0.1:27017/AggregateDB
+      - key: JWT_SECRET
+        value: ThisIsMySecretKey@2024
+      # - key: CLOUDINARY_URL
+        # value: your_cloudinary_connection_string # If you're using Cloudinary for image uploads
+      - key: NODE_ENV
+        value: production
