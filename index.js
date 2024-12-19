@@ -6,7 +6,6 @@ const userRoute = require("./routes/userRoute");
 const postRoute = require("./routes/postRoutes");
 const commentRoute = require("./routes/commentRoute");
 
-
 // middleware
 app.use(express.json());
 app.use("/uploads", express.static("uploads")); // Serve uploaded files
@@ -16,6 +15,11 @@ app.use(`/${process.env.BASE_URl}/auth`, userRoute);
 app.use(`/${process.env.BASE_URl}/post`, postRoute);
 // app.use(`${process.env.BASE_URl}/comment`, commentRoute);
 app.use(`/${process.env.BASE_URL}/comment`, commentRoute);
+
+// Testing route for server
+app.get("/", async (req, res) => {
+  res.send(`<h1>Blog Management Server is working</h1>`);
+});
 
 const port = process.env.PORT || 3000;
 
